@@ -1,5 +1,5 @@
-create database mall4;
-use mall4;
+create database labexam2;
+use labexam2;
 
 SET FOREIGN_KEY_CHECKS=0;
 
@@ -9,6 +9,7 @@ create table EMPLOYEE(emp_ssn int, emp_name varchar(30), salary int, dept_no int
 create table DEPARTMENT(dept_no int, dept_name varchar(30), manager_ssn int, store_no int, primary key(dept_no), foreign key(manager_ssn) references EMPLOYEE(emp_ssn));
 create table STORES(store_no int, store_name varchar(30), room_no int, manager_name varchar(30), manager_ssn int, owner_name varchar(30), primary key(store_no), foreign key(owner_name) references OWNER_TABLE(owner_name), foreign key(manager_ssn) references EMPLOYEE(emp_ssn));
 alter table EMPLOYEE add foreign key(dept_no) references DEPARTMENT(dept_no);
+alter table DEPARTMENT add foreign key(store_no) references STORES(store_no);
 
 insert into MALL values("forum","koramangala");
 insert into MALL values("orion","rajajinagar");
@@ -28,6 +29,6 @@ insert into EMPLOYEE values(102,'messi',20000,7,101);
 insert into EMPLOYEE values(103,'neymar',10000,5,103);
 
 
-insert into STORES values(55,'dbrand',69,"mkbhd",333,"de bruyne");
-insert into STORES values(56,'gap',70,"arnault",334,"di caprio");
-insert into STORES values(57,'stratton oakmont',71,"jordan belfort",335,"tom hanks");
+insert into STORES values(1001,'dbrand',69,"mkbhd",340,"ronaldo");
+insert into STORES values(1002,'gap',70,"arnault",342,"pep guardiola");
+insert into STORES values(1003,'stratton oakmont',71,"jordan belfort",335,"arnavps");
